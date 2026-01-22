@@ -141,6 +141,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:8080",
     "http://localhost:8081",
     "http://192.168.1.128:8081",
+    ".onrender.com",
 ]
 
 CORS_ALLOW_CREDENTIALS = True
