@@ -3,10 +3,20 @@ services:
     name: pg-management-backend
     env: python
     plan: free
-    buildCommand: pip install -r pg_managementPRD/requirements.txt
-    startCommand: gunicorn pg_managementPRD.wsgi:application
+
+    # 🔑 THIS IS THE MOST IMPORTANT LINE
+    rootDir: PG_MANAGEMENT
+
+    buildCommand: pip install -r requirements.txt
+
+    startCommand: >
+      python manage.py migrate &&
+      python create_superuser.py &&
+      gunicorn pg_managementPRD.wsgi:application
+
     envVars:
       - key: DJANGO_SETTINGS_MODULE
         value: pg_managementPRD.settings
+
       - key: PYTHON_VERSION
         value: 3.11
