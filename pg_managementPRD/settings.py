@@ -149,9 +149,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # 
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://pg-management-backend-30fg.onrender.com",
+    "https://pg-management-backend-dyfi.onrender.com",
 ]
-
 # --------------------------------------------------
 # CORS SETTINGS
 # --------------------------------------------------
@@ -160,7 +159,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:8080",
     "http://localhost:8081",
     "http://192.168.1.128:8081",
-    "https://pg-management-backend-l1po.onrender.com",
+    "https://pg-management-backend-dyfi.onrender.com",
 ]
 # # CORS (temporary)
 # CORS_ALLOW_ALL_ORIGINS = True
