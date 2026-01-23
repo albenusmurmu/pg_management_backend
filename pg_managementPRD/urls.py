@@ -22,6 +22,7 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from MASTERAPP import views
 from rest_framework_simplejwt.views import TokenRefreshView
+from django.http import JsonResponse
 
 router = DefaultRouter()
 router.register(r'facilities', views.FacilityViewSet)
@@ -32,9 +33,11 @@ router.register(r'user-types', views.UserTypeViewSet)
 router.register(r'login-types', views.LoginTypeViewSet)
 router.register(r'access-types', views.AccessTypeViewSet)
 router.register(r'tenant-history', views.TenantHistoryViewSet)
-
+def health(request):
+    return JsonResponse({"status": "API running"})
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("", health),  # 👈 ADD THIS FIRST
 
     # API ROUTES
     path('', include(router.urls)),
