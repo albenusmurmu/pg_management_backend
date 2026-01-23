@@ -18,6 +18,7 @@ from pathlib import Path
 from datetime import timedelta
 import os
 from dotenv import load_dotenv
+from django.contrib.auth import get_user_model
 
 # --------------------------------------------------
 # BASE DIR & ENV
@@ -190,3 +191,21 @@ SIMPLE_JWT = {
 
     "AUTH_HEADER_TYPES": ("Bearer",),
 }
+
+# import os
+
+if os.getenv("DJANGO_SUPERUSER_USERNAME"):
+    try:
+        # from django.contrib.auth import get_user_model
+        User = get_user_model()
+
+        if not User.objects.filter(
+            username=os.getenv("DJANGO_SUPERUSER_USERNAME")
+        ).exists():
+            User.objects.create_superuser(
+                username=os.getenv("DJANGO_SUPERUSER_USERNAME"),
+                email=os.getenv("DJANGO_SUPERUSER_EMAIL"),
+                password=os.getenv("DJANGO_SUPERUSER_PASSWORD"),
+            )
+    except Exception as e:
+        print("Superuser creation skipped:", e)
