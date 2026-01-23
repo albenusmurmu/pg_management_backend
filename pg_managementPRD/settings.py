@@ -40,7 +40,8 @@ DEBUG = os.getenv("DEBUG") == "True"
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 # HOSTS
-ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "*").split(",")
+# ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "*").split(",")
+ALLOWED_HOSTS = ['*']
 
 # --------------------------------------------------
 # APPLICATION DEFINITION
@@ -150,8 +151,8 @@ CORS_ALLOWED_ORIGINS = [
     "http://192.168.1.128:8081",
     # ".onrender.com",
 ]
-# CORS (temporary)
-CORS_ALLOW_ALL_ORIGINS = True
+# # CORS (temporary)
+# CORS_ALLOW_ALL_ORIGINS = True
 
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_ALL_HEADERS = True
