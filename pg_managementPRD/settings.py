@@ -149,7 +149,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:8080",
     "http://localhost:8081",
     "http://192.168.1.128:8081",
-    # ".onrender.com",
+    "https://pg-management-backend-l1po.onrender.com",
 ]
 # # CORS (temporary)
 # CORS_ALLOW_ALL_ORIGINS = True
