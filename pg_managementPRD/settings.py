@@ -143,6 +143,15 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
+# 
+# -------------------------------------------------- CSRF SETTINGS
+# 
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://pg-management-backend-30fg.onrender.com",
+]
+
 # --------------------------------------------------
 # CORS SETTINGS
 # --------------------------------------------------
@@ -209,3 +218,5 @@ if os.getenv("DJANGO_SUPERUSER_USERNAME"):
             )
     except Exception as e:
         print("Superuser creation skipped:", e)
+
+
